@@ -47,7 +47,9 @@ class App extends Component
         <td>{item.Country ? item.Country: 'NA' }</td>
         <td>{item.NewConfirmed}</td>
         <td>{item.TotalConfirmed}</td>
-        <td>{item.TotalDeaths}</td>
+        <td>{item.NewDeaths}</td>
+        <td style={{color:'red',fontWeight:'bold'}}>{item.TotalDeaths}</td>
+        <td style={{color:'green',fontWeight:'bold'}}>{item.TotalRecovered}</td>
         </tr>
         )
         
@@ -58,9 +60,6 @@ class App extends Component
   render()
   {
     var apiDate = new Date(this.state.currentDate).toDateString();
-    var items = this.state.items
-    console.log(this.state.items.Country)
-
     return(
       
       <div className="App">
@@ -101,13 +100,18 @@ class App extends Component
 
         </div>
 
+<div className='heading-2'>Country wise data</div>
+
+<div className="table_div">
         <table className="summary_table">
           <thead>
               <tr>
                 <th>Country</th>
                 <th>New Confirmed</th>
                 <th>Total Confirmed</th>
+                <th>New Deaths</th>
                 <th>Total Deaths</th>
+                <th>Total Recovered</th>
                 </tr>
                 </thead>
 
@@ -116,6 +120,7 @@ class App extends Component
                 </tbody>
 
               </table>
+              </div>
               
       </div>
       :<div className="loading text-center"><img src={loading} alt="loading"/></div> 
